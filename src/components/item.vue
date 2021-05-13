@@ -44,7 +44,7 @@
 				//如何通知父组件 通过抛出事件方法 
 				//$emit两个参数  第一个是事件的名称 可以随意定义
 				//			   第二个参数是子组件向父组件传递的参数
-				this.$eit("active", "子组件传递参数");
+				this.$emit("active", "子组件传递参数");
 				this.$emit("func", this.$data.returnParam);
 			}
 		}
