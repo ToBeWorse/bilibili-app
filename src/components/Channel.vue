@@ -1,10 +1,11 @@
 <template>
 	<!-- v-if="data" 如果打他有值的时候 渲染组件 没有值得时候不再渲染组件 这样的操作可以避免定义默认值 -->
 	<div class="channel" v-if="data">
-		<!-- @active="$emit('active')" 这个是由下层组件传递出来的 这层处理不了 交给上层处理-->
+		<!-- @active="$emit('active')" 这个是由下层组件传递出来的 这层处理不了 交给上层处理 继续抛出事件 -->
 		<item :isActive="isActive" @active="$emit('active')">
 			<div class="inner">
 				<span class="name">
+					<!-- 这里的data和isActive一样 都是父组件传递过来的值 查看下面的props -->
 					{{ data.name}}
 				</span>
 				<span class="number">
@@ -21,12 +22,13 @@
 	import item from "./item"
 	export default {
 		props: {
+			//这里定义的isActive这个属性其实就是定义了item中的isActive 因为这层没办法给item传递这个值，它只能向上级组件请求这个值来返回给下层组件
 			isActive: {
 				type: Boolean, //约束属性的类型为布尔类型 
 				//required:true,//约束属性是必填
 				default: false //给一个默认的值
 			},
-			//由父组件传递的对象
+			//由父组件传递归来的的对象
 			data: {
 				//凡是属性的默认值是一个对象的 都应该用函数配置返回
 				type: Object,
