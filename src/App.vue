@@ -1,6 +1,6 @@
 <template>
 	<div>
-	<div style="width: 240px;" >
+	<div style="width: 25%;" >
 		<TitleMenu :isActive="activeId === 100" @active="select=true,activeId=100">
 			<!-- 给组件的具名插槽传递内容-->
 			<template v-slot:title >
